@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        AI Document Knowledge Assistant
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="badge">
+            AI • RAG • EMBEDDINGS • SEMANTIC SEARCH
+        </div>
+
+        <h1>
+            AI Document Knowledge Assistant
+        </h1>
+
+        <p>
+            Upload PDF, TXT or Markdown documents
+            and ask questions using Retrieval-Augmented
+            Generation.
+        </p>
+
+    </header>
+
+
+    <!-- UPLOAD -->
+
+    <section class="card">
+
+        <h2>
+            📄 Upload Documents
+        </h2>
+
+        <p class="description">
+            Supported formats: PDF, TXT and Markdown
+        </p>
+
+        <input
+            type="file"
+            id="fileInput"
+            multiple
+            accept=".pdf,.txt,.md"
+        >
+
+        <div
+            id="selectedFiles"
+            class="file-list"
+        ></div>
+
+        <button
+            id="uploadBtn"
+            class="primary-btn"
+        >
+            Build Knowledge Base
+        </button>
+
+        <div
+            id="uploadStatus"
+            class="status"
+        ></div>
+
+    </section>
+
+
+    <!-- ASK QUESTION -->
+
+    <section class="card">
+
+        <h2>
+            💬 Ask Your Documents
+        </h2>
+
+        <label>
+            Prompting Technique
+        </label>
+
+        <select id="technique">
+
+            <option value="role-based">
+                Role-Based
+            </option>
+
+            <option value="zero-shot">
+                Zero-Shot
+            </option>
+
+            <option value="few-shot">
+                Few-Shot
+            </option>
+
+        </select>
+
+
+        <textarea
+            id="question"
+            placeholder="Ask a question about your documents..."
+        ></textarea>
+
+
+        <button
+            id="askBtn"
+            class="primary-btn"
+        >
+            Ask Question
+        </button>
+
+
+        <div
+            id="answerBox"
+            class="answer-box"
+        >
+
+            <h3>
+                🤖 AI Answer
+            </h3>
+
+            <div id="answer">
+                Your answer will appear here.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOURCES -->
+
+    <section class="card">
+
+        <h2>
+            🔎 Retrieved Sources
+        </h2>
+
+        <p class="description">
+            Top 3 semantically similar document chunks
+        </p>
+
+        <div id="sources">
+
+            <p class="empty">
+                No sources retrieved yet.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROMPT COMPARISON -->
+
+    <section class="card">
+
+        <h2>
+            🧪 Prompt Engineering Comparison
+        </h2>
+
+        <p class="description">
+
+            Compare Zero-Shot, Few-Shot and
+            Role-Based prompting using the
+            same question.
+
+        </p>
+
+
+        <button
+            id="compareBtn"
+            class="secondary-btn"
+        >
+            Compare All Techniques
+        </button>
+
+
+        <div
+            id="comparison"
+            class="comparison"
+        ></div>
+
+    </section>
+
+
+    <!-- TEST QUESTIONS -->
+
+    <section class="card">
+
+        <h2>
+            📝 Five Test Questions
+        </h2>
+
+        <p class="description">
+            Questions provided for assignment testing.
+        </p>
+
+        <div id="testQuestions">
+
+            <p>
+                Loading test questions...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SEMANTIC SEARCH -->
+
+    <section class="card">
+
+        <h2>
+            🧠 Semantic Search vs Keyword Search
+        </h2>
+
+
+        <div class="comparison-grid">
+
+            <div>
+
+                <h3>
+                    Keyword Search
+                </h3>
+
+                <p>
+                    Keyword search looks for exact
+                    words or phrases in documents.
+                    It may fail when the same idea
+                    is written using different words.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Semantic Search
+                </h3>
+
+                <p>
+                    Semantic search converts text into
+                    embeddings and retrieves content
+                    based on meaning and similarity,
+                    rather than only exact words.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RAG PIPELINE -->
+
+    <section class="card">
+
+        <h2>
+            🔄 RAG Pipeline
+        </h2>
+
+        <div class="pipeline">
+
+            <div>📄 Documents</div>
+            <span>→</span>
+
+            <div>✂️ Chunking</div>
+            <span>→</span>
+
+            <div>🧠 Embeddings</div>
+            <span>→</span>
+
+            <div>🗄️ ChromaDB</div>
+            <span>→</span>
+
+            <div>🔎 Retrieval</div>
+            <span>→</span>
+
+            <div>🤖 Groq LLM</div>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+<script
+    src="/static/script.js"
+></script>
+
+
+</body>
+
+</html>

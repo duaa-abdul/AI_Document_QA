@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+jinja2
+sentence-transformers
+chromadb
+pypdf
+groq
+python-dotenv
